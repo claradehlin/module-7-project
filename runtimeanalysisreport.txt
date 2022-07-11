@@ -1,0 +1,13 @@
+                    ARRAY RESULTS
+
+                    doublerAppend           doublerInsert
+
+tinyArray           2.873 μs                34.819 μs
+smallArray          8.292 μs                 78.115 μs
+mediumArray         1.377079 ms             1.482931 ms
+largeArray          563.298 μs              15.688782 ms
+extraLargeArray     5.342883 ms             2.135037804 s
+
+4. The doublerAppend function scales quite nicely. The range from the tinyArray to the extraLargeArray is just 5.34001 milliseconds. It has a slow increase as the array gets larger. The doublerInsert function does not scale well. It has a much quicker increase than the doublerAppend array and from the tinyArray to the extraLargeArray the time difference is 2.13500298 seconds. This means that by the time the array is the extra large size with data, the doublerInsert function is 400 times less efficient. 
+
+5. Unshift is slower than push because it also needs to unshift all the elements to the left once the first element is added. This means that every time there is a new element, the amount of numbers that needs to be shifted goes up, making the function slower to complete.
